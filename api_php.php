@@ -1,5 +1,6 @@
 <?php
 $subject = $_GET['subject'];
+
 function fetchData($subject) {
   $url = "https://openlibrary.org/subjects/$subject.json";
   $curl = curl_init($url);
@@ -16,7 +17,6 @@ function fetchData($subject) {
 
   curl_close($curl);
 
- 
   $data = json_decode($response, true);
 
   if (isset($data['error'])) {
@@ -35,29 +35,46 @@ if (is_string($subjectData)) {
 
 $htmlOutput = "";
 
-$htmlOutput .= "<h1>Subject: " . $subjectData['name'] . "</h1>";
+$htmlOutput .= "<h1>Genre: " . $subjectData['name'] . "</h1>";
 
-echo "<h1>Subject: " . $subjectData['name'] . "</h1>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Recommended</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<?php
+echo $htmlOutput;
 
 if (isset($subjectData['works'])) {
-  echo "<h2>Related Works:</h2>";
-  echo "<ul>";
+  echo "<div id='books'>";
+  $count = 0; // Counter to track displayed works
   foreach ($subjectData['works'] as $work) {
-    echo "<li>";
+    if ($count < 5) { // Only display up to 5 works
+      echo "<div class='book'>";
 
-    $authorName = isset($work['authors'][0]['name']) ? $work['authors'][0]['name'] : 'Unknown Author';
-    echo "<p>$work[title] by $authorName</p>";
+      $authorName = isset($work['authors'][0]['name']) ? $work['authors'][0]['name'] : 'Unknown Author';
+      echo "<p class='books-title'>$work[title]</p>";
+      echo "<p class='books-author'>$authorName</p>";
 
-
-    if (isset($work['cover_id'])) {
-      $coverUrl = "http://covers.openlibrary.org/b/id/$work[cover_id].jpg";
-      echo "<br><img src='$coverUrl' alt='Book Cover Not Available'>";
+      if (isset($work['cover_id'])) {
+        $coverUrl = "http://covers.openlibrary.org/b/id/$work[cover_id].jpg";
+        echo "<br><img src='$coverUrl' alt='Book Cover Not Available'>";
+      }
+      echo "</div>";
+      $count++;
     }
-    echo "</li>";
   }
-  echo "</ul>";
+  echo "</div>";
+
 } else {
   echo "No related works found for this subject.";
 }
-
 ?>
+
+</body>
+</html>
