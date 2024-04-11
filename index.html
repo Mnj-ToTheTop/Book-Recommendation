@@ -4,32 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Book Recommender</title>
+  <title>Login/Signup</title>
 </head>
 <body>
-  <script>
-    function validateInput()
-    {
-        const userInput = document.getElementById("subject").value.trim();
-        const messageDiv = document.getElementById('message');
-
-        if(userInput.includes(" "))
-        {
-            messageDiv.textContent = "Please enter only one word.";
-        }
-
-        else
-        {
-            messageDiv.textContent = "";
-        }
-    }
-  </script>
-  <h1>Book Recommender</h1>
-  <form id="forms" action="api_php.php" method="get" > <label for="subject">Enter a genre: </label>
-    <input type="text" id="subject" name="subject" oninput="validateInput()" required>
-    <div id='message'></div>
-    <br>
-    <button type="submit">Search</button>
-  </form>
+  <h1>Login/Signup</h1>
+  <div id="login-form">
+    <h2>Login</h2>
+    <form id = "forms" action="login.php" method="post" onsubmit="return validateLogin()">
+      <label for="username">User_id:</label>
+      <input type="text" id="user_id" name="user_id" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <div id="signup-form">
+    <h2>Sign Up</h2>
+    <form id = "forms" action="signup.php" method="post" onsubmit="return validateSignup()">
+      <label for="new-username">Name:</label>
+      <input type="text" id="new-username" name="new-username" required>
+      <label for="new-username">User_id:</label>
+      <input type="text" id="new-user_id" name="new-user_id" required>
+      <label for="new-password">Password:</label>
+      <input type="password" id="new-password" name="new-password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
