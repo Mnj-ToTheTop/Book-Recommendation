@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Database connection details (replace with your credentials)
 $servername = "localhost";
 $username = "root";
 $dbname = "book recom";
@@ -16,7 +15,6 @@ $newUsername = $_POST['new-username'];
 $newPassword = $_POST['new-password'];
 $userNewId = $_POST['new-user_id'];
 
-// Improve validation to check for existing usernames etc. (replace with more robust checks)
 if (empty($newUsername) || empty($newPassword) || empty($userNewId)) {
   echo "Please fill in all fields.";
   exit();
