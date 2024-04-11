@@ -7,90 +7,74 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: whitesmoke;
-    text-align: center;
 }
 
-#kk {
+.heading {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-}
-
-h1 {
-    text-align: center;
-    padding-top: 50px;
+    margin-top: 70px; /* Adjusted margin-top value */
 }
 
 .container {
-    text-align: center;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px; /* Adjusted margin-top value */
+    height: calc(70vh - 20px); /* Adjusted height */
 }
 
-#forms{
-    text-align: center;
-}
-
-input[type="text"] {
+.login-form,
+.signup-form {
     width: 300px;
+    padding: 30px;
+}
+
+.separator {
+    width: 1px;
+    height: 80%;
+    background-color: #fff;
+    margin: 0 20px;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+label {
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
     padding: 10px;
+    margin: 10px 0;
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
-}
-
-input[type="password"]
-{
-    width: 300px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
 }
 
 button {
-    padding: 10px 20px;
+    width: 109%;
+    padding: 10px;
+    margin: 10px 0;
     background-color: darkorange;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: orange;
-}
-
-#message {
-    color: red;
-    margin-top: 10px;
-}
-
-#books {
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.book {
-    width: 200px;
-    margin: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.book img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.books-title {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.books-author {
-    font-style: italic;
-    margin-top: 5px;
 }
