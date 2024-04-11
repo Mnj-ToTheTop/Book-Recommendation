@@ -7,6 +7,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: whitesmoke;
+    text-align: center;
+}
+
+#kk {
+    text-align: center;
 }
 
 h1 {
@@ -24,6 +29,15 @@ h1 {
 }
 
 input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+input[type="password"]
+{
     width: 300px;
     padding: 10px;
     border: none;
